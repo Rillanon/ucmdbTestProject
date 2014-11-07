@@ -766,6 +766,7 @@ class ServerRuntime(jee_discoverer.ServerRuntime):
         # pattern: com.ibm.ws.runtime.WsServer <CONFIG_DIR> <CELL_NAME> <NODE_NAME> <SERVER_NAME>
         # cmdLine: com.ibm.ws.runtime.WsServer "C:\Program Files\IBM\WebSphere\AppServer/profiles/SecSrv04\config" ddm-rnd-yg-vm4Node01Cell ddm-rnd-yg-vm4Node04 server1
         #m  = re.search(r'com\.ibm\.ws\.runtime\.WsServer\s+"?([^"]*)"?\s+(.*)\s+(.*)\s+(.*)\s*', commandLine) JDS change - this line is old code.
+        #the commandline output is: com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1
         m  = re.search(r'com\.ibm\.ws\.runtime\.WsServer\s+"?([^"]*)"?\s+(.*)\s+(.*)\s+(.*)\s*', commandLine)
         logger.debug("JDS debug, M @ zero", m.group(0))
         logger.debug("JDS debug, M @ one", m.group(1))
