@@ -1,0 +1,511 @@
+<execution jobId="JEEWebSpherebyShellJDS" destinationid="ba4d7d84eaae1b95a482f8859d59bcce" max_store_sent_results="2147483647">
+	<destination>
+		<destinationData name="id">ba4d7d84eaae1b95a482f8859d59bcce</destinationData>
+		<destinationData name="ip_address">10.139.128.196</destinationData>
+		<destinationData name="hostId">b1c0a6e8120a05e622f4d37fe44452a1</destinationData>
+		<destinationData name="credentialsId">7_1_CMS</destinationData>
+		<destinationData name="Protocol">ssh</destinationData>
+		<destinationData name="connected_os_credentials_id">NA</destinationData>
+	</destination>
+	<protocol name="ssh" cm_credential_id="7_1_CMS">
+		<object id="ef0acf9db808e555850bed9512d33168" id_type="CmdbObjectID" class="sshprotocol" isReference="false" is_anchor="false">
+			<attribute name="protocol_in_use" type="Boolean">false</attribute>
+			<attribute name="protocol_username" type="String">cmdbuser</attribute>
+			<attribute name="sshprotocol_sudo_su_policy" type="String">sudo or su</attribute>
+			<attribute name="sshprotocol_su_username" type="Unknown" />
+			<attribute name="sshprotocol_hello_timeout" type="String">10000</attribute>
+			<attribute name="protocol_netaddress" type="String">DEFAULT</attribute>
+			<attribute name="sshprotocol_prompts" type="Unknown" />
+			<attribute name="protocol_port" type="String">22</attribute>
+			<attribute name="sshprotocol_sudo_commands" type="Unknown" />
+			<attribute name="sshprotocol_keypath" type="Unknown" />
+			<attribute name="sshprotocol_authmode" type="String">password</attribute>
+			<attribute name="sshprotocol_version" type="String">SSH2 or SSH1</attribute>
+			<attribute name="sshprotocol_shell_env_sep_char" type="String">;</attribute>
+			<attribute name="protocol_timeout" type="String">25000</attribute>
+			<attribute name="user_label" type="String">AIX DIscovery Account</attribute>
+			<attribute name="cm_credential_id" type="String">7_1_CMS</attribute>
+			<attribute name="protocol_index" type="Integer">3</attribute>
+			<attribute name="protocol_type" type="String">sshprotocol</attribute>
+			<attribute name="sshprotocol_sudo_paths" type="Unknown" />
+		</object>
+	</protocol>
+	<params>
+		<param param_name="maxThreadRuntime" param_value="3600000" />
+		<param param_name="JOB_ID" param_value="JEEWebSpherebyShellJDS" />
+	</params>
+	<log start="16:36:40" severity="info">Executon current time:2014/11/07 16:36:40</log>
+	<CONNECT start="16:36:41" duration="130" CMD="client_connect" RESULT="success" type="ssh" credentialsId="7_1_CMS">
+		<ClientProperties>
+			<prop name="sshprotocol_sudo_su_policy" value="sudo or su" />
+			<prop name="protocol_index" value="3" />
+			<prop name="protocol_timeout" value="25000" />
+			<prop name="credentialsId" value="7_1_CMS" />
+			<prop name="sshprotocol_sudo_commands" value="" />
+			<prop name="sshprotocol_keypath" value="" />
+			<prop name="cm_credential_id" value="7_1_CMS" />
+			<prop name="sshprotocol_shell_env_sep_char" value=";" />
+			<prop name="protocol_type" value="sshprotocol" />
+			<prop name="protocol_netaddress" value="DEFAULT" />
+			<prop name="sshprotocol_authmode" value="password" />
+			<prop name="sshprotocol_prompts" value="" />
+			<prop name="sshprotocol_hello_timeout" value="10000" />
+			<prop name="protocol_port" value="22" />
+			<prop name="sshprotocol_version" value="SSH2 or SSH1" />
+			<prop name="user_label" value="AIX DIscovery Account" />
+			<prop name="protocol_username" value="cmdbuser" />
+			<prop name="sshprotocol_su_username" value="" />
+			<prop name="protocol_in_use" value="false" />
+			<prop name="sshprotocol_sudo_paths" value="" />
+			<prop name="BandwidthLimit" value="0" />
+		</ClientProperties>
+	</CONNECT>
+	<EXEC start="16:36:41" duration="8" CMD="ver" RESULT="-bash: ver: command not found" />
+	<log start="16:36:41" severity="debug">Check for Cygwin installed on Windows</log>
+	<EXEC start="16:36:41" duration="10" CMD="cmd.exe /c ver" RESULT="-bash: cmd.exe: command not found" />
+	<log start="16:36:41" severity="debug">Check for IBM VIO Server Shell</log>
+	<EXEC start="16:36:41" duration="13" CMD="ioscli uname -a" RESULT="-bash: ioscli: command not found" />
+	<log start="16:36:41" severity="debug">Failed detecting IBM VIO Server. -bash: ioscli: command not found</log>
+	<EXEC start="16:36:41" duration="9" CMD="uname" RESULT="Linux" />
+	<log start="16:36:41" severity="debug">Unix detected</log>
+	<EXEC start="16:36:41" duration="0" CMD="getShellCmdSeperator" RESULT=";" />
+	<log start="16:36:41" severity="debug">Determining shell environment status variable...</log>
+	<log start="16:36:41" severity="debug">determining shell:</log>
+	<log start="16:36:41" severity="debug">trying: 'echo $SHELL'</log>
+	<EXEC start="16:36:41" duration="10">
+		<CMD>[CDATA: echo $SHELL]</CMD>
+		<RESULT>[CDATA: /bin/bash]</RESULT>
+	</EXEC>
+	<log start="16:36:41" severity="debug">res: '/bin/bash'</log>
+	<log start="16:36:41" severity="debug">response: '/bin/bash'</log>
+	<log start="16:36:41" severity="debug">trying: 'echo $?'...</log>
+	<EXEC start="16:36:41" duration="10">
+		<CMD>[CDATA: echo $?]</CMD>
+		<RESULT>[CDATA: 0]</RESULT>
+	</EXEC>
+	<log start="16:36:41" severity="debug">res: '0'...</log>
+	<log start="16:36:41" severity="debug">response: '0'</log>
+	<log start="16:36:41" severity="debug">found shell environment status variable='$?'</log>
+	<EXEC start="16:36:41" duration="15">
+		<CMD>[CDATA: uname ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: Linux
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<log start="16:36:41" severity="debug">Using charset: Cp1252</log>
+	<log start="16:36:41" severity="debug">Can encode: True</log>
+	<EXEC start="16:36:41" duration="0" CMD="setCharset" RESULT="windows-1252" />
+	<EXEC start="16:36:41" duration="0" CMD="getSudoPaths" RESULT="" />
+	<EXEC start="16:36:41" duration="0" CMD="getSudoCommands" RESULT="" />
+	<log start="16:36:41" severity="debug">adding alternate cmd='locale -a | grep -E "en_US.*|^C|POSIX"'</log>
+	<log start="16:36:41" severity="debug">adding alternate cmd='locale -a | /usr/xpg4/bin/grep -E "en_US.*|^C|POSIX"'</log>
+	<EXEC start="16:36:41" duration="30">
+		<CMD>[CDATA: locale -a | grep -E "en_US.*|^C|POSIX" ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: C
+en_US
+en_US.iso88591
+en_US.iso885915
+en_US.utf8
+POSIX
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<log start="16:36:41" severity="debug">command='locale -a | grep -E "en_US.*|^C|POSIX"' ended successfully</log>
+	<EXEC start="16:36:41" duration="21">
+		<CMD>[CDATA: cmd.exe /c "exit /b 0" ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: -bash: cmd.exe: command not found
+ERROR_CODE:127]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="16">
+		<CMD>[CDATA: set ComSpec ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="16">
+		<CMD>[CDATA: echo $SHELL ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: /bin/bash
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="16">
+		<CMD>[CDATA: echo $SHELL ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: /bin/bash
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<log start="16:36:41" severity="debug">Bourne-like shell detected</log>
+	<EXEC start="16:36:41" duration="28">
+		<CMD>[CDATA: LANG="en_US.iso88591" &amp;&amp; export LANG ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="3">
+		<CMD>[CDATA: LC_ALL="en_US.iso88591" &amp;&amp; export LC_ALL ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<log start="16:36:41" severity="debug">Locale set to: en_US.iso88591</log>
+	<EXEC start="16:36:41" duration="3">
+		<CMD>[CDATA: cmd.exe /c "exit /b 0" ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: -bash: cmd.exe: command not found
+ERROR_CODE:127]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="2">
+		<CMD>[CDATA: set ComSpec ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="2">
+		<CMD>[CDATA: echo $SHELL ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: /bin/bash
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="2">
+		<CMD>[CDATA: echo $SHELL ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: /bin/bash
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<log start="16:36:41" severity="debug">Bourne-like shell detected</log>
+	<EXEC start="16:36:41" duration="3">
+		<CMD>[CDATA: echo ${PATH-notExists} ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: /usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/cmdbuser/bin
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="4">
+		<CMD>[CDATA: PATH=${PATH}":/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin" &amp;&amp; export PATH ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<log start="16:36:41" severity="debug">UnixFileSystem created successfully, backend: file_info_discoverers.UnixFileInfoDiscovererByPerl</log>
+	<EXEC start="16:36:41" duration="42">
+		<CMD>[CDATA: uname -r ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: 2.6.32-431.5.1.el6.x86_64
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="20">
+		<CMD>[CDATA: date +%z ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: +1100
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="11">
+		<CMD>[CDATA: ps -eo user,pid,lstart,command --cols 4000 --no-headers ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: root         1 Thu Oct 30 19:09:54 2014 /sbin/init
+root         2 Thu Oct 30 19:09:54 2014 [kthreadd]
+root         3 Thu Oct 30 19:09:54 2014 [migration/0]
+root         4 Thu Oct 30 19:09:54 2014 [ksoftirqd/0]
+root         5 Thu Oct 30 19:09:54 2014 [migration/0]
+root         6 Thu Oct 30 19:09:54 2014 [watchdog/0]
+root         7 Thu Oct 30 19:09:54 2014 [migration/1]
+root         8 Thu Oct 30 19:09:54 2014 [migration/1]
+root         9 Thu Oct 30 19:09:54 2014 [ksoftirqd/1]
+root        10 Thu Oct 30 19:09:54 2014 [watchdog/1]
+root        11 Thu Oct 30 19:09:54 2014 [events/0]
+root        12 Thu Oct 30 19:09:54 2014 [events/1]
+root        13 Thu Oct 30 19:09:54 2014 [cgroup]
+root        14 Thu Oct 30 19:09:54 2014 [khelper]
+root        15 Thu Oct 30 19:09:54 2014 [netns]
+root        16 Thu Oct 30 19:09:54 2014 [async/mgr]
+root        17 Thu Oct 30 19:09:54 2014 [pm]
+root        18 Thu Oct 30 19:09:54 2014 [sync_supers]
+root        19 Thu Oct 30 19:09:54 2014 [bdi-default]
+root        20 Thu Oct 30 19:09:54 2014 [kintegrityd/0]
+root        21 Thu Oct 30 19:09:54 2014 [kintegrityd/1]
+root        22 Thu Oct 30 19:09:54 2014 [kblockd/0]
+root        23 Thu Oct 30 19:09:54 2014 [kblockd/1]
+root        24 Thu Oct 30 19:09:54 2014 [kacpid]
+root        25 Thu Oct 30 19:09:54 2014 [kacpi_notify]
+root        26 Thu Oct 30 19:09:54 2014 [kacpi_hotplug]
+root        27 Thu Oct 30 19:09:54 2014 [ata_aux]
+root        28 Thu Oct 30 19:09:54 2014 [ata_sff/0]
+root        29 Thu Oct 30 19:09:54 2014 [ata_sff/1]
+root        30 Thu Oct 30 19:09:54 2014 [ksuspend_usbd]
+root        31 Thu Oct 30 19:09:54 2014 [khubd]
+root        32 Thu Oct 30 19:09:54 2014 [kseriod]
+root        33 Thu Oct 30 19:09:54 2014 [md/0]
+root        34 Thu Oct 30 19:09:54 2014 [md/1]
+root        35 Thu Oct 30 19:09:54 2014 [md_misc/0]
+root        36 Thu Oct 30 19:09:54 2014 [md_misc/1]
+root        37 Thu Oct 30 19:09:54 2014 [linkwatch]
+root        38 Thu Oct 30 19:09:54 2014 [khungtaskd]
+root        39 Thu Oct 30 19:09:54 2014 [kswapd0]
+root        40 Thu Oct 30 19:09:54 2014 [ksmd]
+root        41 Thu Oct 30 19:09:54 2014 [khugepaged]
+root        42 Thu Oct 30 19:09:54 2014 [aio/0]
+root        43 Thu Oct 30 19:09:54 2014 [aio/1]
+root        44 Thu Oct 30 19:09:54 2014 [crypto/0]
+root        45 Thu Oct 30 19:09:54 2014 [crypto/1]
+root        50 Thu Oct 30 19:09:54 2014 [kthrotld/0]
+root        51 Thu Oct 30 19:09:54 2014 [kthrotld/1]
+root        52 Thu Oct 30 19:09:54 2014 [pciehpd]
+root        54 Thu Oct 30 19:09:55 2014 [kpsmoused]
+root        55 Thu Oct 30 19:09:55 2014 [usbhid_resumer]
+root        86 Thu Oct 30 19:09:55 2014 [kstriped]
+root       308 Thu Oct 30 19:09:55 2014 [scsi_eh_0]
+root       309 Thu Oct 30 19:09:55 2014 [scsi_eh_1]
+root       325 Thu Oct 30 19:09:55 2014 [scsi_eh_2]
+root       326 Thu Oct 30 19:09:55 2014 [vmw_pvscsi_wq_2]
+root       402 Thu Oct 30 19:09:55 2014 [kdmflush]
+root       404 Thu Oct 30 19:09:55 2014 [kdmflush]
+root       421 Thu Oct 30 19:09:55 2014 [jbd2/dm-1-8]
+root       422 Thu Oct 30 19:09:55 2014 [ext4-dio-unwrit]
+root       471 Thu Oct 30 19:09:56 2014 [kauditd]
+root       516 Thu Oct 30 19:09:57 2014 /sbin/udevd -d
+root       815 Thu Oct 30 19:09:57 2014 [vmmemctl]
+root       929 Thu Oct 30 19:09:58 2014 [kdmflush]
+root       933 Thu Oct 30 19:09:58 2014 [kdmflush]
+root       936 Thu Oct 30 19:09:58 2014 [kdmflush]
+root       938 Thu Oct 30 19:09:58 2014 /sbin/udevd -d
+root       939 Thu Oct 30 19:09:58 2014 [kdmflush]
+root       941 Thu Oct 30 19:09:58 2014 /sbin/udevd -d
+root       942 Thu Oct 30 19:09:58 2014 [kdmflush]
+root       964 Thu Oct 30 19:09:58 2014 [kdmflush]
+root       966 Thu Oct 30 19:09:58 2014 [kdmflush]
+root       968 Thu Oct 30 19:09:58 2014 [kdmflush]
+root       971 Thu Oct 30 19:09:58 2014 [kdmflush]
+root       999 Thu Oct 30 19:09:59 2014 [flush-253:7]
+root      1000 Thu Oct 30 19:09:59 2014 [flush-253:8]
+root      1001 Thu Oct 30 19:09:59 2014 [flush-253:9]
+root      1002 Thu Oct 30 19:09:59 2014 [flush-253:10]
+root      1027 Thu Oct 30 19:09:59 2014 [jbd2/sda1-8]
+root      1028 Thu Oct 30 19:09:59 2014 [ext4-dio-unwrit]
+root      1029 Thu Oct 30 19:09:59 2014 [jbd2/dm-8-8]
+root      1030 Thu Oct 30 19:09:59 2014 [ext4-dio-unwrit]
+root      1031 Thu Oct 30 19:09:59 2014 [jbd2/dm-7-8]
+root      1032 Thu Oct 30 19:09:59 2014 [ext4-dio-unwrit]
+root      1033 Thu Oct 30 19:09:59 2014 [jbd2/dm-9-8]
+root      1034 Thu Oct 30 19:09:59 2014 [ext4-dio-unwrit]
+root      1035 Thu Oct 30 19:09:59 2014 [jbd2/dm-10-8]
+root      1036 Thu Oct 30 19:09:59 2014 [ext4-dio-unwrit]
+root      1037 Thu Oct 30 19:09:59 2014 [jbd2/dm-2-8]
+root      1038 Thu Oct 30 19:09:59 2014 [ext4-dio-unwrit]
+root      1039 Thu Oct 30 19:09:59 2014 [jbd2/dm-3-8]
+root      1040 Thu Oct 30 19:09:59 2014 [ext4-dio-unwrit]
+root      1041 Thu Oct 30 19:09:59 2014 [jbd2/dm-4-8]
+root      1042 Thu Oct 30 19:09:59 2014 [ext4-dio-unwrit]
+root      1043 Thu Oct 30 19:09:59 2014 [jbd2/dm-5-8]
+root      1044 Thu Oct 30 19:09:59 2014 [ext4-dio-unwrit]
+root      1239 Thu Oct 30 19:10:00 2014 /usr/sbin/vmtoolsd
+root      1311 Thu Oct 30 19:10:01 2014 /sbin/rsyslogd -i /var/run/syslogd.pid -c 5
+wasbin    1324 Tue Nov  4 21:06:00 2014 /bin/ksh /usr/local/mware/iscope/scripts/filetailer/tailfiles.sh /home/wasbin/config/wasbin.gc.props /opt/middleware/was855/AppServer/java
+wasbin    1327 Tue Nov  4 21:06:00 2014 /opt/middleware/was855/AppServer/java/bin/java -Xgcpolicy:gencon -Xms128m -Xmx128m -Xmn64m -verbose:gc -Xverbosegclog:filetail_vgc.log -cp /usr/local/mware/iscope/scripts/filetailer/tailermon.jar:/usr/local/mware/iscope/scripts/filetailer/groovy-all-2.0.7.jar:/usr/local/mware/iscope/scripts/filetailer/iagutil.jar -DTailerProps=/home/wasbin/config/wasbin.gc.props TailFiles
+root      1340 Thu Oct 30 19:10:02 2014 irqbalance
+rpc       1354 Thu Oct 30 19:10:02 2014 rpcbind
+rpcuser   1372 Thu Oct 30 19:10:02 2014 rpc.statd
+root      1395 Thu Oct 30 19:10:02 2014 [rpciod/0]
+root      1396 Thu Oct 30 19:10:02 2014 [rpciod/1]
+root      1507 Thu Oct 30 19:10:20 2014 /var/itlm/tlmagent.bin
+dbus      1520 Thu Oct 30 19:10:21 2014 dbus-daemon --system
+root      1547 Thu Oct 30 19:10:21 2014 [kslowd000]
+root      1548 Thu Oct 30 19:10:21 2014 [kslowd001]
+root      1549 Thu Oct 30 19:10:21 2014 [nfsiod]
+root      1550 Thu Oct 30 19:10:21 2014 [lockd]
+root      1561 Thu Oct 30 19:10:21 2014 /usr/sbin/acpid
+68        1570 Thu Oct 30 19:10:21 2014 hald
+root      1571 Thu Oct 30 19:10:21 2014 hald-runner
+root      1612 Thu Oct 30 19:10:22 2014 hald-addon-input: Listening on /dev/input/event2 /dev/input/event0
+68        1616 Thu Oct 30 19:10:22 2014 hald-addon-acpi: listening on acpid socket /var/run/acpid.socket
+root      1638 Thu Oct 30 19:10:23 2014 automount --pid-file /var/run/autofs.pid
+root      1677 Thu Oct 30 19:10:23 2014 rpc.rquotad
+root      1681 Thu Oct 30 19:10:23 2014 rpc.mountd
+root      1751 Thu Oct 30 19:10:23 2014 rpc.idmapd
+root      1755 Thu Oct 30 19:10:23 2014 [nfsd4]
+root      1756 Thu Oct 30 19:10:23 2014 [nfsd4_callbacks]
+root      1757 Thu Oct 30 19:10:23 2014 [nfsd]
+root      1758 Thu Oct 30 19:10:23 2014 [nfsd]
+root      1759 Thu Oct 30 19:10:23 2014 [nfsd]
+root      1760 Thu Oct 30 19:10:23 2014 [nfsd]
+root      1761 Thu Oct 30 19:10:23 2014 [nfsd]
+root      1762 Thu Oct 30 19:10:23 2014 [nfsd]
+root      1763 Thu Oct 30 19:10:23 2014 [nfsd]
+root      1764 Thu Oct 30 19:10:23 2014 [nfsd]
+root      1775 Thu Oct 30 19:10:23 2014 /usr/sbin/sshd
+ntp       1783 Thu Oct 30 19:10:23 2014 ntpd -u ntp:ntp -p /var/run/ntpd.pid -g
+nrpe      1791 Thu Oct 30 19:10:24 2014 /usr/sbin/nrpe -c /etc/nagios/nrpe.cfg -d
+root      1867 Thu Oct 30 19:10:24 2014 /usr/libexec/postfix/master
+postfix   1876 Thu Oct 30 19:10:24 2014 qmgr -l -t fifo -u
+root      1891 Thu Oct 30 19:10:24 2014 /usr/sbin/abrtd
+root      1917 Thu Oct 30 19:10:25 2014 /usr/bin/python /usr/sbin/osad --pid-file /var/run/osad.pid
+root      1925 Thu Oct 30 19:10:25 2014 crond
+root      1936 Thu Oct 30 19:10:25 2014 /usr/sbin/atd
+root      1965 Thu Oct 30 19:10:26 2014 /opt/tivoli/tsm/client/ba/bin/dsmcad
+root      1989 Thu Oct 30 19:10:26 2014 rhnsd
+root      1997 Thu Oct 30 19:10:26 2014 /usr/sbin/oddjobd -p /var/run/oddjobd.pid -t 300
+root      2010 Thu Oct 30 19:10:26 2014 /usr/sbin/certmonger -S -p /var/run/certmonger.pid
+root      2027 Thu Oct 30 19:10:26 2014 /usr/bin/dsmc sched
+root      2032 Thu Oct 30 19:10:26 2014 /sbin/mingetty /dev/tty1
+root      2034 Thu Oct 30 19:10:26 2014 /sbin/mingetty /dev/tty2
+root      2036 Thu Oct 30 19:10:26 2014 /sbin/mingetty /dev/tty3
+root      2038 Thu Oct 30 19:10:26 2014 /sbin/mingetty /dev/tty4
+root      2040 Thu Oct 30 19:10:26 2014 /sbin/mingetty /dev/tty5
+root      2042 Thu Oct 30 19:10:26 2014 /sbin/mingetty /dev/tty6
+root      2097 Thu Oct 30 19:10:36 2014 auditd
+wasbin    2430 Thu Oct 30 19:11:14 2014 /bin/ksh /usr/local/mware/iscope/scripts/filetailer/tailfiles.sh /home/wasbin/config/wasbin.gc.props /opt/middleware/was855/AppServer/java
+wasbin    2433 Thu Oct 30 19:11:14 2014 /opt/middleware/was855/AppServer/java/bin/java -Xgcpolicy:gencon -Xms128m -Xmx128m -Xmn64m -verbose:gc -Xverbosegclog:filetail_vgc.log -cp /usr/local/mware/iscope/scripts/filetailer/tailermon.jar:/usr/local/mware/iscope/scripts/filetailer/groovy-all-2.0.7.jar:/usr/local/mware/iscope/scripts/filetailer/iagutil.jar -DTailerProps=/home/wasbin/config/wasbin.gc.props TailFiles
+root      3766 Thu Oct 30 19:17:04 2014 [flush-253:5]
+wasrun    3879 Thu Oct 30 19:17:16 2014 /opt/middleware/was855/AppServer/java_1.7_64/bin/java -Xmaxt0.5 -Dwas.status.socket=51506 -Declipse.security -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/nodeagent/configuration -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -Dorg.osgi.framework.bootdelegation=* -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms256m -Xmx512m -Xcompressedrefs -Xscmaxaot4M -Xnoaot -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.awt.headless=true -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1 nodeagent
+wasrun    4381 Thu Oct 30 19:19:46 2014 /opt/middleware/was855/AppServer/java_1.7_64/bin/java -Declipse.security -Dwas.status.socket=43692 -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/TrgCguCudosSunriseAdapterM1/configuration -Djava.awt.headless=true -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar:/iag/was/profiles/IagCellN1/config/cudos/sunrise_adapter/ -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms512m -Xmx512m -Xcompressedrefs -Xscmaxaot4M -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.io.tmpdir=/tmp/TrgCguCudosSunriseAdapterCluster -Dcom.wily.introscope.agentProfile=/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/profiles/ulewas003N1_TrgCguCudosSunriseAdapterM1/Introscope.profile -Dcom.wily.introscope.agent.agentName=TrgCguCudosSunriseAdapterM1 -Dintroscope.autoprobe.logfile=/iag/was/profiles/IagCellN1/logs/TrgCguCudosSunriseAdapterM1/IAutoProbe.log -Xgcpolicy:gencon -Xjit:dontInline={java/lang/Object.&lt;init&gt;*},exclude={java/lang/Object.&lt;init&gt;*} -Xmn128M -javaagent:/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/agents/9.5.5/Agent.jar -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1 TrgCguCudosSunriseAdapterM1
+wasbin    5452 Mon Nov  3 21:05:49 2014 /bin/ksh /usr/local/mware/iscope/scripts/filetailer/tailfiles.sh /home/wasbin/config/wasbin.gc.props /opt/middleware/was855/AppServer/java
+wasbin    5455 Mon Nov  3 21:05:49 2014 /opt/middleware/was855/AppServer/java/bin/java -Xgcpolicy:gencon -Xms128m -Xmx128m -Xmn64m -verbose:gc -Xverbosegclog:filetail_vgc.log -cp /usr/local/mware/iscope/scripts/filetailer/tailermon.jar:/usr/local/mware/iscope/scripts/filetailer/groovy-all-2.0.7.jar:/usr/local/mware/iscope/scripts/filetailer/iagutil.jar -DTailerProps=/home/wasbin/config/wasbin.gc.props TailFiles
+postfix   7538 Fri Nov  7 15:34:47 2014 pickup -l -t fifo -u
+wasbin    9994 Sun Nov  2 21:06:33 2014 /bin/ksh /usr/local/mware/iscope/scripts/filetailer/tailfiles.sh /home/wasbin/config/wasbin.gc.props /opt/middleware/was855/AppServer/java
+wasbin    9997 Sun Nov  2 21:06:33 2014 /opt/middleware/was855/AppServer/java/bin/java -Xgcpolicy:gencon -Xms128m -Xmx128m -Xmn64m -verbose:gc -Xverbosegclog:filetail_vgc.log -cp /usr/local/mware/iscope/scripts/filetailer/tailermon.jar:/usr/local/mware/iscope/scripts/filetailer/groovy-all-2.0.7.jar:/usr/local/mware/iscope/scripts/filetailer/iagutil.jar -DTailerProps=/home/wasbin/config/wasbin.gc.props TailFiles
+wasbin   14347 Sat Nov  1 21:08:56 2014 /bin/ksh /usr/local/mware/iscope/scripts/filetailer/tailfiles.sh /home/wasbin/config/wasbin.gc.props /opt/middleware/was855/AppServer/java
+wasbin   14350 Sat Nov  1 21:08:56 2014 /opt/middleware/was855/AppServer/java/bin/java -Xgcpolicy:gencon -Xms128m -Xmx128m -Xmn64m -verbose:gc -Xverbosegclog:filetail_vgc.log -cp /usr/local/mware/iscope/scripts/filetailer/tailermon.jar:/usr/local/mware/iscope/scripts/filetailer/groovy-all-2.0.7.jar:/usr/local/mware/iscope/scripts/filetailer/iagutil.jar -DTailerProps=/home/wasbin/config/wasbin.gc.props TailFiles
+splunk   15856 Fri Nov  7 06:03:19 2014 splunkd -p 8089 start
+splunk   15857 Fri Nov  7 06:03:19 2014 [splunkd pid=15856] splunkd -p 8089 start [process-runner]
+root     17380 Fri Nov  7 16:36:41 2014 sshd: cmdbuser [priv]
+cmdbuser 17382 Fri Nov  7 16:36:41 2014 sshd: cmdbuser@pts/0
+cmdbuser 17383 Fri Nov  7 16:36:41 2014 -bash
+cmdbuser 17420 Fri Nov  7 16:36:42 2014 ps -eo user,pid,lstart,command --cols 4000 --no-headers
+wasbin   18062 Fri Oct 31 21:06:27 2014 /bin/ksh /usr/local/mware/iscope/scripts/filetailer/tailfiles.sh /home/wasbin/config/wasbin.gc.props /opt/middleware/was855/AppServer/java
+wasbin   18065 Fri Oct 31 21:06:27 2014 /opt/middleware/was855/AppServer/java/bin/java -Xgcpolicy:gencon -Xms128m -Xmx128m -Xmn64m -verbose:gc -Xverbosegclog:filetail_vgc.log -cp /usr/local/mware/iscope/scripts/filetailer/tailermon.jar:/usr/local/mware/iscope/scripts/filetailer/groovy-all-2.0.7.jar:/usr/local/mware/iscope/scripts/filetailer/iagutil.jar -DTailerProps=/home/wasbin/config/wasbin.gc.props TailFiles
+wasbin   21212 Thu Oct 30 21:06:55 2014 /bin/ksh /usr/local/mware/iscope/scripts/filetailer/tailfiles.sh /home/wasbin/config/wasbin.gc.props /opt/middleware/was855/AppServer/java
+wasbin   21215 Thu Oct 30 21:06:55 2014 /opt/middleware/was855/AppServer/java/bin/java -Xgcpolicy:gencon -Xms128m -Xmx128m -Xmn64m -verbose:gc -Xverbosegclog:filetail_vgc.log -cp /usr/local/mware/iscope/scripts/filetailer/tailermon.jar:/usr/local/mware/iscope/scripts/filetailer/groovy-all-2.0.7.jar:/usr/local/mware/iscope/scripts/filetailer/iagutil.jar -DTailerProps=/home/wasbin/config/wasbin.gc.props TailFiles
+nobody   22310 Fri Nov  7 00:00:01 2014 /usr/bin/nmon -f -t -m /var/log/nmon
+wasbin   28102 Thu Nov  6 21:08:36 2014 /usr/local/mware/java/jre/bin/java -Xgcpolicy:gencon -Xmn64m -Xms128m -Xmx128m -verbose:gc -cp /usr/local/mware/iscope/epagentv9/lib/EPAgent.jar com.wily.introscope.api.IntroscopeEPAgent
+wasbin   28133 Thu Nov  6 21:08:36 2014 /bin/ksh /usr/local/mware/iscope/scripts/filetailer/tailfiles.sh /home/wasbin/config/wasbin.gc.props /opt/middleware/was855/AppServer/java
+wasbin   28134 Thu Nov  6 21:08:36 2014 /opt/middleware/was855/AppServer/java/bin/java -Xgcpolicy:gencon -Xms128m -Xmx128m -Xmn64m -verbose:gc -Xverbosegclog:filetail_vgc.log -cp /usr/local/mware/iscope/scripts/filetailer/tailermon.jar:/usr/local/mware/iscope/scripts/filetailer/groovy-all-2.0.7.jar:/usr/local/mware/iscope/scripts/filetailer/iagutil.jar -DTailerProps=/home/wasbin/config/wasbin.gc.props TailFiles
+wasrun   28291 Fri Oct 31 11:47:06 2014 /opt/middleware/was855/AppServer/java_1.7_64/bin/java -Declipse.security -Dwas.status.socket=54907 -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/TrgCguCudosUICluster_ulewas003N1/configuration -Djava.awt.headless=true -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar:/iag/was/profiles/IagCellN1/config/cudos -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms4096m -Xmx4096m -Xcompressedrefs -Xscmaxaot4M -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.io.tmpdir=/tmp/TrgCguCudosUICluster_ulewas003N1 -Dspring.profiles.active=ui -DSchemaName=RATDDBA -Dsun.net.client.defaultConnectTimeout=6000 -Dsun.net.client.defaultReadTimeout=24000 -Dlog4j.configuration=file:///cgu/trg/config/cudos/log4j.properties -Dcom.wily.introscope.agentProfile=/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/profiles/TrgCguCudosUICluster/Introscope.profile -Dcom.wily.introscope.agent.agentName=TrgCguCudosUICluster -Dlogback.configurationFile=file:///iag/was/profiles/IagCellN1/config/cudos/logbackConfiguration.xml -Dintroscope.autoprobe.logfile=/iag/was/profiles/IagCellN1/logs/TrgCguCudosUICluster_ulewas003N1/IAutoProbe.log -DlogbackServerName=Staff -Xlp -Xmn2048M -javaagent:/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/agents/9.5.5/Agent.jar -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1
+mwcfg    28859 Thu Nov  6 21:12:37 2014 /usr/local/mware/java/jre/bin/java -Xgcpolicy:gencon -Xmn64m -Xms128m -Xmx128m -verbose:gc -cp /usr/local/mware/iscope/epagentv9/lib/EPAgent.jar com.wily.introscope.api.IntroscopeEPAgent
+wasbin   29590 Wed Nov  5 21:03:56 2014 /bin/ksh /usr/local/mware/iscope/scripts/filetailer/tailfiles.sh /home/wasbin/config/wasbin.gc.props /opt/middleware/was855/AppServer/java
+wasbin   29595 Wed Nov  5 21:03:56 2014 /opt/middleware/was855/AppServer/java/bin/java -Xgcpolicy:gencon -Xms128m -Xmx128m -Xmn64m -verbose:gc -Xverbosegclog:filetail_vgc.log -cp /usr/local/mware/iscope/scripts/filetailer/tailermon.jar:/usr/local/mware/iscope/scripts/filetailer/groovy-all-2.0.7.jar:/usr/local/mware/iscope/scripts/filetailer/iagutil.jar -DTailerProps=/home/wasbin/config/wasbin.gc.props TailFiles
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<log start="16:36:41" severity="info">Found 3 Websphere processes</log>
+	<log start="16:36:41" severity="info">JDS debug - the cmd that was ran:/opt/middleware/was855/AppServer/java_1.7_64/bin/java -Xmaxt0.5 -Dwas.status.socket=51506 -Declipse.security -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/nodeagent/configuration -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -Dorg.osgi.framework.bootdelegation=* -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms256m -Xmx512m -Xcompressedrefs -Xscmaxaot4M -Xnoaot -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.awt.headless=true -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1 nodeagent</log>
+	<log start="16:36:41" severity="info">JDS debug - the cmd that was ran:/opt/middleware/was855/AppServer/java_1.7_64/bin/java -Declipse.security -Dwas.status.socket=43692 -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/TrgCguCudosSunriseAdapterM1/configuration -Djava.awt.headless=true -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar:/iag/was/profiles/IagCellN1/config/cudos/sunrise_adapter/ -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms512m -Xmx512m -Xcompressedrefs -Xscmaxaot4M -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.io.tmpdir=/tmp/TrgCguCudosSunriseAdapterCluster -Dcom.wily.introscope.agentProfile=/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/profiles/ulewas003N1_TrgCguCudosSunriseAdapterM1/Introscope.profile -Dcom.wily.introscope.agent.agentName=TrgCguCudosSunriseAdapterM1 -Dintroscope.autoprobe.logfile=/iag/was/profiles/IagCellN1/logs/TrgCguCudosSunriseAdapterM1/IAutoProbe.log -Xgcpolicy:gencon -Xjit:dontInline={java/lang/Object.&lt;init&gt;*},exclude={java/lang/Object.&lt;init&gt;*} -Xmn128M -javaagent:/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/agents/9.5.5/Agent.jar -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1 TrgCguCudosSunriseAdapterM1</log>
+	<log start="16:36:41" severity="info">JDS debug - the cmd that was ran:/opt/middleware/was855/AppServer/java_1.7_64/bin/java -Declipse.security -Dwas.status.socket=54907 -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/TrgCguCudosUICluster_ulewas003N1/configuration -Djava.awt.headless=true -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar:/iag/was/profiles/IagCellN1/config/cudos -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms4096m -Xmx4096m -Xcompressedrefs -Xscmaxaot4M -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.io.tmpdir=/tmp/TrgCguCudosUICluster_ulewas003N1 -Dspring.profiles.active=ui -DSchemaName=RATDDBA -Dsun.net.client.defaultConnectTimeout=6000 -Dsun.net.client.defaultReadTimeout=24000 -Dlog4j.configuration=file:///cgu/trg/config/cudos/log4j.properties -Dcom.wily.introscope.agentProfile=/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/profiles/TrgCguCudosUICluster/Introscope.profile -Dcom.wily.introscope.agent.agentName=TrgCguCudosUICluster -Dlogback.configurationFile=file:///iag/was/profiles/IagCellN1/config/cudos/logbackConfiguration.xml -Dintroscope.autoprobe.logfile=/iag/was/profiles/IagCellN1/logs/TrgCguCudosUICluster_ulewas003N1/IAutoProbe.log -DlogbackServerName=Staff -Xlp -Xmn2048M -javaagent:/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/agents/9.5.5/Agent.jar -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1</log>
+	<log start="16:36:41" severity="debug">JDS: finished grouby</log>
+	<log start="16:36:41" severity="debug">------------------------------</log>
+	<log start="16:36:41" severity="debug">None</log>
+	<log start="16:36:41" severity="debug">	ServerRuntime("/opt/middleware/was855/AppServer/java_1.7_64/bin/java -Declipse.security -Dwas.status.socket=54907 -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/TrgCguCudosUICluster_ulewas003N1/configuration -Djava.awt.headless=true -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar:/iag/was/profiles/IagCellN1/config/cudos -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms4096m -Xmx4096m -Xcompressedrefs -Xscmaxaot4M -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.io.tmpdir=/tmp/TrgCguCudosUICluster_ulewas003N1 -Dspring.profiles.active=ui -DSchemaName=RATDDBA -Dsun.net.client.defaultConnectTimeout=6000 -Dsun.net.client.defaultReadTimeout=24000 -Dlog4j.configuration=file:///cgu/trg/config/cudos/log4j.properties -Dcom.wily.introscope.agentProfile=/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/profiles/TrgCguCudosUICluster/Introscope.profile -Dcom.wily.introscope.agent.agentName=TrgCguCudosUICluster -Dlogback.configurationFile=file:///iag/was/profiles/IagCellN1/config/cudos/logbackConfiguration.xml -Dintroscope.autoprobe.logfile=/iag/was/profiles/IagCellN1/logs/TrgCguCudosUICluster_ulewas003N1/IAutoProbe.log -DlogbackServerName=Staff -Xlp -Xmn2048M -javaagent:/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/agents/9.5.5/Agent.jar -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1")</log>
+	<log start="16:36:41" severity="debug">/iag/was/profiles/IagCellN1/config</log>
+	<log start="16:36:41" severity="debug">	ServerRuntime("/opt/middleware/was855/AppServer/java_1.7_64/bin/java -Xmaxt0.5 -Dwas.status.socket=51506 -Declipse.security -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/nodeagent/configuration -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -Dorg.osgi.framework.bootdelegation=* -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms256m -Xmx512m -Xcompressedrefs -Xscmaxaot4M -Xnoaot -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.awt.headless=true -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1 nodeagent")</log>
+	<log start="16:36:41" severity="debug">	ServerRuntime("/opt/middleware/was855/AppServer/java_1.7_64/bin/java -Declipse.security -Dwas.status.socket=43692 -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/TrgCguCudosSunriseAdapterM1/configuration -Djava.awt.headless=true -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar:/iag/was/profiles/IagCellN1/config/cudos/sunrise_adapter/ -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms512m -Xmx512m -Xcompressedrefs -Xscmaxaot4M -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.io.tmpdir=/tmp/TrgCguCudosSunriseAdapterCluster -Dcom.wily.introscope.agentProfile=/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/profiles/ulewas003N1_TrgCguCudosSunriseAdapterM1/Introscope.profile -Dcom.wily.introscope.agent.agentName=TrgCguCudosSunriseAdapterM1 -Dintroscope.autoprobe.logfile=/iag/was/profiles/IagCellN1/logs/TrgCguCudosSunriseAdapterM1/IAutoProbe.log -Xgcpolicy:gencon -Xjit:dontInline={java/lang/Object.&lt;init&gt;*},exclude={java/lang/Object.&lt;init&gt;*} -Xmn128M -javaagent:/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/agents/9.5.5/Agent.jar -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1 TrgCguCudosSunriseAdapterM1")</log>
+	<log start="16:36:41" severity="debug">------------------------------</log>
+	<log start="16:36:41" severity="debug">*** START: determineVesion</log>
+	<EXEC start="16:36:41" duration="9">
+		<CMD>[CDATA: perl -e '
+use File::Basename;
+$d = shift;
+-d dirname($d) || print("Path not found\n") &amp;&amp; exit 1;
+$d =~ s/\s/\\$&amp;/gs;
+for $file (glob($d)){
+    (-l $file and not -e readlink($file)) &amp;&amp; print("Path not found\n") &amp;&amp; exit 1;
+    print "&lt;==&gt;\n";
+    @Stat = stat $file;
+    printf("%s &lt;=&gt;\n", basename($file));
+printf("%s &lt;=&gt;\n", $file);
+}' "/opt/middleware/was855/AppServer/properties/version/*" ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: &lt;==&gt;
+com.ibm.websphere.IBMJAVA.v70.msl &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/com.ibm.websphere.IBMJAVA.v70.msl &lt;=&gt;
+&lt;==&gt;
+com.ibm.websphere.ND.v85.msl &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/com.ibm.websphere.ND.v85.msl &lt;=&gt;
+&lt;==&gt;
+core.feature.marker &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/core.feature.marker &lt;=&gt;
+&lt;==&gt;
+dtd &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/dtd &lt;=&gt;
+&lt;==&gt;
+history.xml &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/history.xml &lt;=&gt;
+&lt;==&gt;
+IBM_CCmp_point_release_1452645_Apache_Derby.10.8.fxtag &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/IBM_CCmp_point_release_1452645_Apache_Derby.10.8.fxtag &lt;=&gt;
+&lt;==&gt;
+IBM_Java_SE_Runtime_Environment_64bit.1.6.0.cmptag &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/IBM_Java_SE_Runtime_Environment_64bit.1.6.0.cmptag &lt;=&gt;
+&lt;==&gt;
+IBM_Java_SE_Runtime_Environment_64bit.1.7.0.cmptag &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/IBM_Java_SE_Runtime_Environment_64bit.1.7.0.cmptag &lt;=&gt;
+&lt;==&gt;
+IBMJAVA7.product &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/IBMJAVA7.product &lt;=&gt;
+&lt;==&gt;
+install &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/install &lt;=&gt;
+&lt;==&gt;
+installed.xml &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/installed.xml &lt;=&gt;
+&lt;==&gt;
+nif &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/nif &lt;=&gt;
+&lt;==&gt;
+nsf &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/nsf &lt;=&gt;
+&lt;==&gt;
+platform.websphere &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/platform.websphere &lt;=&gt;
+&lt;==&gt;
+WAS.product &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/WAS.product &lt;=&gt;
+&lt;==&gt;
+WebSphere_Application_Server_Network_Deployment-8.5.5.swtag &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/WebSphere_Application_Server_Network_Deployment-8.5.5.swtag &lt;=&gt;
+&lt;==&gt;
+WebSphere_Application_Server_Network_Deployment_v8.5.5_Fix_Pack.fxtag &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/WebSphere_Application_Server_Network_Deployment_v8.5.5_Fix_Pack.fxtag &lt;=&gt;
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="9">
+		<CMD>[CDATA: perl -e '
+use File::Basename;
+$d = shift;
+-d dirname($d) || print("Path not found\n") &amp;&amp; exit 1;
+$d =~ s/\s/\\$&amp;/gs;
+for $file (glob($d)){
+    (-l $file and not -e readlink($file)) &amp;&amp; print("Path not found\n") &amp;&amp; exit 1;
+    print "&lt;==&gt;\n";
+    @Stat = stat $file;
+    printf("%s &lt;=&gt;\n", basename($file));
+printf("%s &lt;=&gt;\n", $file);
+}' "/opt/middleware/was855/AppServer/properties/version/.*" ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: &lt;==&gt;
+. &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/. &lt;=&gt;
+&lt;==&gt;
+.. &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/.. &lt;=&gt;
+&lt;==&gt;
+.WVE.info &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/.WVE.info &lt;=&gt;
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<EXEC start="16:36:41" duration="9">
+		<CMD>[CDATA: perl -e '
+use File::Basename;
+$d = shift;
+-d dirname($d) || print("Path not found\n") &amp;&amp; exit 1;
+$d =~ s/\s/\\$&amp;/gs;
+for $file (glob($d)){
+    (-l $file and not -e readlink($file)) &amp;&amp; print("Path not found\n") &amp;&amp; exit 1;
+    print "&lt;==&gt;\n";
+    @Stat = stat $file;
+    printf("%s &lt;=&gt;\n", basename($file));
+printf("%s &lt;=&gt;\n", $file);
+open FH, $file; print while(&lt;FH&gt;);close FH; print("&lt;=&gt;\n");
+}' "/opt/middleware/was855/AppServer/properties/version/WAS.product" ; echo ERROR_CODE:$?]</CMD>
+		<RESULT>[CDATA: &lt;==&gt;
+WAS.product &lt;=&gt;
+/opt/middleware/was855/AppServer/properties/version/WAS.product &lt;=&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE product SYSTEM "product.dtd"&gt;
+&lt;product name="IBM WebSphere Application Server Network Deployment"&gt;
+  &lt;id&gt;ND&lt;/id&gt;
+  &lt;version&gt;8.5.5.1&lt;/version&gt;
+  &lt;build-info
+    date="10/18/13"
+    level="cf011341.03"/&gt;
+&lt;/product&gt;
+&lt;=&gt;
+ERROR_CODE:0]</RESULT>
+	</EXEC>
+	<log start="16:36:41" severity="debug">*** productInformation found: ProductInformation(IBM WebSphere Application Server Network Deployment, 8.5.5.1, )</log>
+	<log start="16:36:41" severity="debug">*** END: determineVesion</log>
+	<log start="16:36:41" severity="info">==============================</log>
+	<log start="16:36:41" severity="info">Profile None</log>
+	<log start="16:36:41" severity="info">Determine cell type (standalone|distributed)</log>
+	<log start="16:36:41" severity="info">JDS debug - the cmd that was ran:/opt/middleware/was855/AppServer/java_1.7_64/bin/java -Declipse.security -Dwas.status.socket=54907 -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/TrgCguCudosUICluster_ulewas003N1/configuration -Djava.awt.headless=true -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar:/iag/was/profiles/IagCellN1/config/cudos -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms4096m -Xmx4096m -Xcompressedrefs -Xscmaxaot4M -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.io.tmpdir=/tmp/TrgCguCudosUICluster_ulewas003N1 -Dspring.profiles.active=ui -DSchemaName=RATDDBA -Dsun.net.client.defaultConnectTimeout=6000 -Dsun.net.client.defaultReadTimeout=24000 -Dlog4j.configuration=file:///cgu/trg/config/cudos/log4j.properties -Dcom.wily.introscope.agentProfile=/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/profiles/TrgCguCudosUICluster/Introscope.profile -Dcom.wily.introscope.agent.agentName=TrgCguCudosUICluster -Dlogback.configurationFile=file:///iag/was/profiles/IagCellN1/config/cudos/logbackConfiguration.xml -Dintroscope.autoprobe.logfile=/iag/was/profiles/IagCellN1/logs/TrgCguCudosUICluster_ulewas003N1/IAutoProbe.log -DlogbackServerName=Staff -Xlp -Xmn2048M -javaagent:/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/agents/9.5.5/Agent.jar -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1</log>
+	<log start="16:36:41" severity="debug">JDS: finished grouby</log>
+	<log start="16:36:41" severity="debug">------------------------------</log>
+	<log start="16:36:41" severity="debug">None</log>
+	<log start="16:36:41" severity="debug">	ServerRuntime("/opt/middleware/was855/AppServer/java_1.7_64/bin/java -Declipse.security -Dwas.status.socket=54907 -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/TrgCguCudosUICluster_ulewas003N1/configuration -Djava.awt.headless=true -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar:/iag/was/profiles/IagCellN1/config/cudos -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms4096m -Xmx4096m -Xcompressedrefs -Xscmaxaot4M -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.io.tmpdir=/tmp/TrgCguCudosUICluster_ulewas003N1 -Dspring.profiles.active=ui -DSchemaName=RATDDBA -Dsun.net.client.defaultConnectTimeout=6000 -Dsun.net.client.defaultReadTimeout=24000 -Dlog4j.configuration=file:///cgu/trg/config/cudos/log4j.properties -Dcom.wily.introscope.agentProfile=/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/profiles/TrgCguCudosUICluster/Introscope.profile -Dcom.wily.introscope.agent.agentName=TrgCguCudosUICluster -Dlogback.configurationFile=file:///iag/was/profiles/IagCellN1/config/cudos/logbackConfiguration.xml -Dintroscope.autoprobe.logfile=/iag/was/profiles/IagCellN1/logs/TrgCguCudosUICluster_ulewas003N1/IAutoProbe.log -DlogbackServerName=Staff -Xlp -Xmn2048M -javaagent:/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/agents/9.5.5/Agent.jar -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1")</log>
+	<log start="16:36:41" severity="debug">------------------------------</log>
+	<log start="16:36:41" severity="error">JDS debug test - Error happens at [ServerRuntime("/opt/middleware/was855/AppServer/java_1.7_64/bin/java -Declipse.security -Dwas.status.socket=54907 -Dosgi.install.area=/opt/middleware/was855/AppServer -Dosgi.configuration.area=/iag/was/profiles/IagCellN1/servers/TrgCguCudosUICluster_ulewas003N1/configuration -Djava.awt.headless=true -Dosgi.framework.extensions=com.ibm.cds,com.ibm.ws.eclipse.adaptors -Xshareclasses:name=webspherev85_1.7_64_%g,nonFatal -Dcom.ibm.xtq.processor.overrideSecureProcessing=true -Xbootclasspath/p:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ibmorb.jar -classpath /iag/was/profiles/IagCellN1/properties:/opt/middleware/was855/AppServer/properties:/opt/middleware/was855/AppServer/lib/startup.jar:/opt/middleware/was855/AppServer/lib/bootstrap.jar:/opt/middleware/was855/AppServer/lib/jsf-nls.jar:/opt/middleware/was855/AppServer/lib/lmproxy.jar:/opt/middleware/was855/AppServer/lib/urlprotocols.jar:/opt/middleware/was855/AppServer/deploytool/itp/batchboot.jar:/opt/middleware/was855/AppServer/deploytool/itp/batch2.jar:/opt/middleware/was855/AppServer/java_1.7_64/lib/tools.jar:/iag/was/profiles/IagCellN1/config/cudos -Dorg.osgi.framework.bootdelegation=* -Dibm.websphere.internalClassAccessMode=allow -verbose:gc -Xms4096m -Xmx4096m -Xcompressedrefs -Xscmaxaot4M -Xscmx90M -Dws.ext.dirs=/opt/middleware/was855/AppServer/java_1.7_64/lib:/iag/was/profiles/IagCellN1/classes:/opt/middleware/was855/AppServer/classes:/opt/middleware/was855/AppServer/lib:/opt/middleware/was855/AppServer/installedChannels:/opt/middleware/was855/AppServer/lib/ext:/opt/middleware/was855/AppServer/web/help:/opt/middleware/was855/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime -Dderby.system.home=/opt/middleware/was855/AppServer/derby -Dcom.ibm.itp.location=/opt/middleware/was855/AppServer/bin -Djava.util.logging.configureByServer=true -Duser.install.root=/iag/was/profiles/IagCellN1 -Djava.ext.dirs=/opt/middleware/was855/AppServer/tivoli/tam:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/ext -Djavax.management.builder.initial=com.ibm.ws.management.PlatformMBeanServerBuilder -Dpython.cachedir=/iag/was/profiles/IagCellN1/temp/cachedir -Dwas.install.root=/opt/middleware/was855/AppServer -Djava.util.logging.manager=com.ibm.ws.bootstrap.WsLogManager -Dserver.root=/iag/was/profiles/IagCellN1 -Dcom.ibm.security.jgss.debug=off -Dcom.ibm.security.krb5.Krb5Debug=off -Djava.io.tmpdir=/tmp/TrgCguCudosUICluster_ulewas003N1 -Dspring.profiles.active=ui -DSchemaName=RATDDBA -Dsun.net.client.defaultConnectTimeout=6000 -Dsun.net.client.defaultReadTimeout=24000 -Dlog4j.configuration=file:///cgu/trg/config/cudos/log4j.properties -Dcom.wily.introscope.agentProfile=/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/profiles/TrgCguCudosUICluster/Introscope.profile -Dcom.wily.introscope.agent.agentName=TrgCguCudosUICluster -Dlogback.configurationFile=file:///iag/was/profiles/IagCellN1/config/cudos/logbackConfiguration.xml -Dintroscope.autoprobe.logfile=/iag/was/profiles/IagCellN1/logs/TrgCguCudosUICluster_ulewas003N1/IAutoProbe.log -DlogbackServerName=Staff -Xlp -Xmn2048M -javaagent:/iag/was/profiles/IagCellN1/config/cells/TrgCguAPPCell/introscope/agents/9.5.5/Agent.jar -Djava.library.path=/opt/middleware/was855/AppServer/lib/native/linux/x86_64/:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64/compressedrefs:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/amd64:/opt/middleware/was855/AppServer/bin:/opt/middleware/was855/AppServer/nulldllsdir:/usr/lib: -Djava.endorsed.dirs=/opt/middleware/was855/AppServer/endorsed_apis:/opt/middleware/was855/AppServer/java_1.7_64/jre/lib/endorsed -Djava.security.auth.login.config=/iag/was/profiles/IagCellN1/properties/wsjaas.conf -Djava.security.policy=/iag/was/profiles/IagCellN1/properties/server.policy com.ibm.wsspi.bootstrap.WSPreLauncher -nosplash -application com.ibm.ws.bootstrap.WSLauncher com.ibm.ws.runtime.WsServer /iag/was/profiles/IagCellN1/config TrgCguAPPCell ulewas003N1")]</log>
+	<DISCONNECT start="16:36:41" duration="1" CMD="client_disconnect" RESULT="" IS_NULL="Y" type="ssh" credentialsId="7_1_CMS" />
+	<log start="16:36:41" severity="info">Executon current time:2014/11/07 16:36:41</log>
+</execution>
