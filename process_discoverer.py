@@ -394,7 +394,9 @@ class DiscovererByShellOnLinux(DiscovererByShell):
         '''
         processes = []
 
-        output = self._getShell().execCmd('ps -eo user,pid,lstart,command --cols 4000 --no-headers')#V@@CMD_PERMISION tty protocol execution
+        # output = self._getShell().execCmd('ps -eo user,pid,lstart,command --cols 4000 --no-headers')#V@@CMD_PERMISION tty protocol execution
+        # JDS changes to ps formatting, done to resolve USD SD3185855 - Ian MA JDS Services
+        output = self._getShell().execCmd('ps -eo user,pid,lstart,command --cols 8000 --no-headers')#V@@CMD_PERMISION tty protocol execution
         if not output:
             return processes
 
